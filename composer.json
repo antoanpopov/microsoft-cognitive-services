@@ -1,0 +1,30 @@
+{
+    "name": "antoanpopov/microsoft-cognitive-services",
+    "description": "Helper for Microsoft's Cognitive Services",
+    "keywords": ["microsoft", "cognitive", "sentiment", "analysis", "antoanpopov"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Antoan Popov",
+            "email": "cowwando@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "AntoanPopov\\MicrosoftCognitiveServices\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
