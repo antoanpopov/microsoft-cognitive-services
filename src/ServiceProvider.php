@@ -13,34 +13,26 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function register()
     {
-        $configPath = __DIR__.'/../config/microsoftcognitiveservices.php';
-        $this->mergeConfigFrom($configPath, 'microsoftcognitiveservices');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'antoanpopov.microsoft-cognitive-services.config');
 
-        $this->app->singleton('microsoftcognitiveservices', function ($app) {
-            $microsoftCognitiveServies = new MicrosoftCognitiveServices($app);
+        $this->app->singleton(
+            'microsoftcognitiveservices',
+            function ($app) {
+                $microsoftCognitiveServies = new MicrosoftCognitiveServices($app);
 
-            return $microsoftCognitiveServies;
-        }
+                return $microsoftCognitiveServies;
+            }
         );
     }
 
-    /**
-     * Get the config path
-     *
-     * @return string
-     */
-    protected function getConfigPath()
+    public function boot()
     {
-        return config_path('microsoftcognitiveservices.php');
-    }
-    /**
-     * Publish the config file
-     *
-     * @param  string $configPath
-     */
-    protected function publishConfig($configPath)
-    {
-        $this->publishes([$configPath => config_path('microsoftcognitiveservices.php')], 'config');
+
+        $this->publishes(
+            [
+                __DIR__.'/../config/config.php' => config_path('antoanpopov/microsoft-cognitive-services/config.php'),
+            ]
+        );
     }
 
 }
